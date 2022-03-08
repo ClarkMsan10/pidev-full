@@ -1,0 +1,132 @@
+.content-project .content-item {
+    padding: 0px 10px 5px 10px;
+}
+
+.border-item {
+    padding: 0;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+.msan-card-technology-icn {
+    margin-top: 5px;
+}
+
+.msan-card-title-icn::before,
+.msan-card-estimation-icn::before,
+.msan-card-category-icn::before,
+.msan-card-technology-icn::before,
+.msan-card-published-icn::before,
+.msan-card-date-icn::before {
+    content: '';
+    display: inline-block;
+    width: 15px;
+    vertical-align: middle;
+    margin-right: 5px;
+    margin-bottom: 3px;
+    height: 15px;
+    background: url('../img/title.svg') center center / 15px 15px no-repeat;
+}
+
+.msan-card-estimation-icn::before {
+    background: url('../img/horloge.svg') center center / 15px 15px no-repeat;
+}
+
+.msan-card-category-icn::before {
+    background: url('../img/category.svg') center center / 15px 15px no-repeat;
+}
+
+.msan-card-technology-icn::before {
+    background: url('../img/technology.svg') center center / 15px 15px no-repeat;
+}
+
+.msan-card-published-icn::before {
+    background: url('../img/pen.svg') center center / 15px 15px no-repeat;
+}
+
+.msan-card-date-icn::before {
+    background: url('../img/date.svg') center center / 15px 15px no-repeat;
+}
+
+.list-item {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 30px;
+    padding-right: 5px;
+}
+
+.button-action-project {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-action-project a {
+    margin-right: 15px;
+}
+
+.description-project {
+    max-width: max-content;
+    padding: 20px 20px 20px 0;
+}
+
+.msan-card-header-comments {
+    background-size: cover;
+    background-color: #dbdbdb;
+    height: 50px;
+    padding: 5px;
+    border-bottom: 2px solid black;
+}
+
+.msan-card-header-comments h4 {
+    font-size: 20px;
+}
+
+.comment-project-section {
+    margin-top: 25px;
+    background-color: #fff;
+    box-shadow: 2px 4px 5px -3px #515151;
+}
+
+.center-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-item {
+    border-bottom: 1px solid black;
+}
+
+.bold-author {
+    font-size: 15px;
+    font-weight: bold;
+    padding: 0px 15px;
+}
+
+.msan-card-header-comments h4 {
+    padding: 5px 5px;
+}
+
+.author-comment {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.content-comment {
+    margin-left: 35px;
+    margin-right: 25px;
+    margin-bottom: 10px;
+}
+
+.date-comment {
+    display: flex;
+    margin-bottom: 2px;
+    margin-right: 10px;
+}
+
+.date-comment p {
+    margin-left: auto;
+}

@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reset your password{% endblock %}
+
+{% block body %}
+
+    <div class="cont">
+        <div class="photo-container">
+            <div class="photo-title">
+                <h1>Pidev Full</h1>
+                <p>La plateforme des idées de projets pidev</p>
+            </div>
+            <div class="photo">
+                <img src="/assets/img/peopleaz.svg" alt="">
+                <a href="https://storyset.com/work">Work illustrations by Storyset</a>
+            </div>
+        </div>
+
+        <div class="vertical-separator"></div>
+
+         <div class="form-container">
+            <div class="title-form">
+                <h3>Suis content de te revoir !</h3>
+                <p>Ensemble, présentons nos projets !</p>
+            </div>
+            <div class="content-form">
+                <div class="container">
+                   {{ form_start(resetForm) }}
+                        <fieldset class="form-group row">
+                            <div class="col-sm-8">
+                               {{ form_row(resetForm.plainPassword) }}
+                            </div>
+                        </fieldset>
+                        <div class="form-group login-button">
+                            <button type="submit" class="btn btn-outline-primary">Changer Mot de Passe</button>
+                        </div>
+                    {{ form_end(resetForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Product By Clark Msan</p>
+    </footer>
+    <h1>Reset your password</h1>
+
+    {# {{ form_start(resetForm) }}
+        {{ form_row(resetForm.plainPassword) }}
+        <button class="btn btn-primary">Reset password</button>
+    {{ form_end(resetForm) }} #}
+{% endblock %}

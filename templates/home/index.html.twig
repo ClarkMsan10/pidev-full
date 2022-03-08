@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+
+{# <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+                <h2 class="navbar-brand">
+                    Pidev - Full, Bienvenue 
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        {{ app.user.firstname}}
+                    {% endif %}
+                </h2>
+
+            <div class="logout-title nav-item">
+                <a href="#">Se Deconnecter</a>
+            </div>
+        </div>
+            
+        </nav>
+        
+    </header> #}
+
+    {% include "partials/header.html.twig" %}
+
+    <div class="container-msan site">
+        <div class="sidebar-container">
+            <nav class="sidebar">
+                <a href="#" class="sidebar-f">Fil d'actualité</a>
+                <a href="{{ path('app_project_new') }}" class="sidebar-g">Ajouter Projet</a>
+                <a href="#" class="sidebar-h">Vos Projets ({{ app.user.projects | length}})</a>
+            </nav>
+
+            <div class="sidebar photo">
+                <img src="/assets/img/eprit.jpg" alt="">
+            </div>
+        </div>
+
+
+        <main class="main">
+
+            {% for project in projects | sort((a, b) => a.createdAt < b.createdAt) %}
+            <article class="msan-card">
+                <header class="msan-card-header">
+                    <h5 class="msan-card-title">{{project.title}}</h5>
+                    <div class="msan-card-metadata">
+                         Publié le 
+                         <span class="msan-card-published text-primary">
+                         {{project.createdAt | date("d/m/y") }} à {{ project.createdAt | date("H:i")}} 
+                         </span> 
+                         | Par 
+                        <span class="msan-card-published text-primary"> {{project.publishedBy.firstname ~' '~ project.publishedBy.lastname }} </span>
+                    </div>
+                </header>
+                
+                <div class="msan-card-body">
+                    <p>
+                    {{ project.summary }}
+                    </p>
+                </div>
+
+                 <div class="msan-card-bagdes">
+                    <span class="text-muted"> Categories :</span>
+                    {% for category in project.categories  %}
+                        <span class="badge bg-light"> {{category.name}} </span>
+                    {% endfor %}
+                </div>
+                <div class="msan-card-bagdes">
+                    <span class="text-muted"> Technologies :</span>
+                    {% for technology in project.technologies  %}
+                        <span class="badge bg-dark"> {{technology.name}} </span>
+                    {% endfor %}
+                </div>
+
+                <div class="msan-card-body mb-1 mt-1 ml-auto">
+                    <a href="{{ path('app_project_show', {'slug': project.slug }) }}" class="btn btn-primary btn-sm">Voir Plus</a>
+                </div>
+
+                <footer class="msan-card-footer">
+                    <div class="msan-card-vote">{{ project.votes | length }}</div>
+                    
+                    <div class="msan-card-comments">{{ project.comments | length }}</div>
+                </footer>
+            </article>
+
+            {% endfor %}
+        </main>
+        <aside class="aside">
+            <div class="sidebar-title">
+                Categories
+            </div>
+            <div class="list-items">
+
+                {% for category in categories %}
+                    <div class="category-item">
+                    <a href="">
+                        {{ category.name }} ({{category.projects  | length }})
+                   </a>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="sidebar-title">
+                Technologies
+            </div>
+            <div class="list-items">
+                {% for technology in technologies %}
+                    <div class="category-item">
+                        <a href="">
+                            {{ technology.name }} ({{technology.projects  | length }}) 
+                        </a>
+                    </div>
+                {% endfor %}
+               
+            </div>
+        </aside>
+    </div>
+
+{% endblock %}
